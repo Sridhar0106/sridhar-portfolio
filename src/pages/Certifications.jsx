@@ -1,6 +1,57 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+
+const TiltCard = ({ children, index }) => {
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    const mouseXSpring = useSpring(x, { stiffness: 500, damping: 100 });
+    const mouseYSpring = useSpring(y, { stiffness: 500, damping: 100 });
+
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
+    const brightness = useTransform(mouseYSpring, [-0.5, 0.5], [1.1, 0.9]);
+
+    const handleMouseMove = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        const xPct = mouseX / width - 0.5;
+        const yPct = mouseY / height - 0.5;
+
+        x.set(xPct);
+        y.set(yPct);
+    };
+
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
+    };
+
+    return (
+        <motion.div
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+                rotateY,
+                rotateX,
+                filter: useTransform(brightness, (b) => `brightness(${b})`),
+                transformStyle: "preserve-3d",
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className={`bg-white border-t-4 ${index % 2 === 0 ? 'border-slate-300' : 'border-blue-500'} rounded-2xl p-8 shadow-sm hover:shadow-2xl transition-shadow duration-300 group flex flex-col min-h-[220px] cursor-pointer`}
+        >
+            {children}
+        </motion.div>
+    );
+};
 
 const Certifications = () => {
     const certifications = [
@@ -31,7 +82,7 @@ const Certifications = () => {
     ];
 
     return (
-        <div className="pt-32 pb-24 px-8 md:px-24 max-w-7xl mx-auto">
+        <div className="pt-32 pb-24 px-8 md:px-24 max-w-7xl mx-auto" style={{ perspective: "1000px" }}>
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -44,16 +95,9 @@ const Certifications = () => {
                 </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {certifications.map((cert, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className={`bg-white border-t-4 ${index % 2 === 0 ? 'border-slate-300' : 'border-blue-500'} rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col min-h-[220px]`}
-                    >
+                    <TiltCard key={index} index={index}>
                         <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                             {cert.title}
                         </h3>
@@ -67,12 +111,13 @@ const Certifications = () => {
                             <a
                                 href={cert.link}
                                 className="flex items-center gap-1.5 text-gray-900 hover:text-blue-600 transition-colors font-bold text-sm"
+                                onClick={(e) => e.stopPropagation()}
                             >
                                 <span>View Certificate</span>
                                 <ArrowRight size={16} />
                             </a>
                         </div>
-                    </motion.div>
+                    </TiltCard>
                 ))}
             </div>
         </div>
