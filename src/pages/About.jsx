@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, MapPin, Calendar } from 'lucide-react';
-import profileAvatar from 'C:/Users/Periyasamy A/.gemini/antigravity/brain/32b9d470-1ab1-43b5-a0c1-f4b2f4af1bdf/sridhar_3d_avatar_1767556798523.png';
+import profileAvatar from '../assets/profile-avatar.png';
 
 const About = () => {
     const experiences = [
