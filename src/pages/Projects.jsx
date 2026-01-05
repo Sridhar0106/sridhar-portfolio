@@ -52,7 +52,7 @@ const Projects = () => {
                 </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto">
                 {projects.map((project, index) => (
                     <motion.div
                         key={index}
@@ -60,29 +60,32 @@ const Projects = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: index * 0.1 }}
-                        className="group relative bg-white/95 dark:bg-[#111827]/40 backdrop-blur-md border border-slate-300 dark:border-gray-800 rounded-[32px] overflow-hidden flex flex-col hover:border-black transition-all duration-500 shadow-md hover:shadow-xl"
+                        className="group bg-white dark:bg-[#111827]/60 backdrop-blur-xl border border-slate-200 dark:border-gray-800 rounded-[40px] p-10 flex flex-col hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-2"
                     >
-                        {/* Project Image Area */}
-                        <div className="h-64 bg-slate-100 dark:bg-[#1e293b]/50 relative flex items-center justify-center transition-colors">
-                            <div className="w-full h-full bg-gradient-to-br from-blue-500/5 to-transparent"></div>
-                            {/* Optional: Add a subtle placeholder pattern or icon */}
+                        {/* Project Image Placeholder */}
+                        <div className="w-full h-64 bg-slate-50 dark:bg-gray-900 rounded-[24px] mb-10 overflow-hidden relative border border-slate-100 dark:border-gray-800/50 flex items-center justify-center group-hover:bg-slate-100 dark:group-hover:bg-gray-800 transition-colors duration-500">
+                            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent"></div>
+                            <div className="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-slate-100 dark:border-gray-700 opacity-40 group-hover:scale-110 transition-transform duration-700">
+                                <ExternalLink size={48} className="text-blue-500" />
+                            </div>
                         </div>
 
-                        {/* Project Info */}
-                        <div className="p-10 flex-1 flex flex-col">
-                            <h3 className="text-3xl font-bold text-black! dark:text-white mb-4 transition-colors group-hover:text-blue-700 dark:group-hover:text-blue-400">
+                        {/* Content Area */}
+                        <div className="flex-1">
+                            <h3 className="text-3xl font-bold text-black! dark:text-white mb-4 tracking-tight transition-colors group-hover:text-blue-600">
                                 {project.title}
                             </h3>
-                            <p className="text-black! dark:text-gray-400 leading-relaxed mb-8 flex-1 transition-colors font-medium">
+
+                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 font-medium">
                                 {project.description}
                             </p>
 
                             {/* Tags */}
-                            <div className="flex flex-wrap gap-3 mb-10">
+                            <div className="flex flex-wrap gap-2 mb-10">
                                 {project.tags.map((tag) => (
                                     <span
                                         key={tag}
-                                        className="px-4 py-1.5 bg-slate-100 dark:bg-gray-800/80 text-black! dark:text-gray-400 text-xs font-bold rounded-full border border-slate-300 dark:border-gray-700 uppercase tracking-widest transition-colors"
+                                        className="px-4 py-1.5 bg-slate-50 dark:bg-gray-800/50 text-gray-500 dark:text-gray-400 text-xs font-bold rounded-full border border-slate-200 dark:border-gray-700 uppercase tracking-widest"
                                     >
                                         {tag}
                                     </span>
@@ -90,19 +93,19 @@ const Projects = () => {
                             </div>
 
                             {/* Links */}
-                            <div className="flex items-center gap-8">
+                            <div className="flex items-center gap-6 border-t border-slate-100 dark:border-gray-800 pt-8 mt-auto">
                                 <a
                                     href={project.github}
-                                    className="flex items-center gap-2 text-slate-800 dark:text-slate-500 hover:text-black dark:hover:text-white transition-colors font-bold text-sm"
+                                    className="flex items-center gap-3 px-6 py-3 bg-black dark:bg-blue-600 text-white! rounded-full hover:bg-gray-800 dark:hover:bg-blue-700 transition-all duration-300 font-bold text-sm shadow-md hover:shadow-lg group/link"
                                 >
-                                    <Github size={20} />
+                                    <Github size={18} className="group-hover/link:rotate-12 transition-transform" />
                                     <span>Source Code</span>
                                 </a>
                                 <a
                                     href={project.demo}
-                                    className="flex items-center gap-2 text-slate-800 dark:text-slate-500 hover:text-black dark:hover:text-white transition-colors font-bold text-sm"
+                                    className="flex items-center gap-3 px-6 py-3 bg-slate-100 dark:bg-gray-800 text-black dark:text-white rounded-full hover:bg-slate-200 dark:hover:bg-gray-700 transition-all duration-300 font-bold text-sm group/link"
                                 >
-                                    <ExternalLink size={20} />
+                                    <ExternalLink size={18} className="group-hover/link:scale-110 transition-transform" />
                                     <span>Live Demo</span>
                                 </a>
                             </div>
