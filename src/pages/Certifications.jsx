@@ -39,21 +39,23 @@ const Certifications = () => {
                 </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 {certifications.map((cert, index) => (
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="p-10 bg-white/95 dark:bg-[#111827]/40 backdrop-blur-md border border-slate-300 dark:border-gray-800 rounded-[24px] hover:border-black transition-all duration-500 group shadow-md hover:shadow-xl"
+                        className={`bg-white border-t-4 ${index % 2 === 0 ? 'border-slate-300' : 'border-blue-500'} rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col min-h-[220px]`}
                     >
-                        <h3 className="text-2xl font-bold text-black! dark:text-white mb-4 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors uppercase tracking-tight">
+                        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                             {cert.title}
                         </h3>
-                        <p className="text-black! dark:text-gray-400 font-bold mb-10 transition-colors">{cert.issuer}</p>
-                        <p className="text-slate-800 dark:text-gray-500 text-sm font-extrabold uppercase tracking-widest transition-colors">
+                        <p className="text-gray-600 font-medium mb-auto">
+                            {cert.issuer}
+                        </p>
+                        <p className="text-gray-400 text-sm mt-6 font-medium">
                             {cert.date}
                         </p>
                     </motion.div>
