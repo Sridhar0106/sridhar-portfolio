@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 const Certifications = () => {
     const certifications = [
@@ -7,21 +8,25 @@ const Certifications = () => {
             title: 'AWS Certified Solutions Architect',
             issuer: 'Amazon Web Services',
             date: 'Issued 2023',
+            link: '#',
         },
         {
             title: 'Meta Frontend Developer Profesional Certificate',
             issuer: 'Meta',
             date: 'Issued 2023',
+            link: '#',
         },
         {
             title: 'Certified Kubernetes Administrator',
             issuer: 'The Linux Foundation',
             date: 'Issued 2022',
+            link: '#',
         },
         {
             title: 'Professional Scrum Master I',
             issuer: 'Scrum.org',
             date: 'Issued 2022',
+            link: '#',
         },
     ];
 
@@ -34,7 +39,7 @@ const Certifications = () => {
                 className="text-center mb-20"
             >
                 <h1 className="text-6xl font-extrabold text-black! dark:text-white mb-6 tracking-tighter uppercase transition-colors">Certifications</h1>
-                <p className="text-black! dark:text-gray-400 text-xl font-bold tracking-wide transition-colors">
+                <p className="mt-4 text-xl text-gray-600 dark:text-gray-400 tracking-wide transition-colors">
                     Continuous learning and professional verification.
                 </p>
             </motion.div>
@@ -55,9 +60,18 @@ const Certifications = () => {
                         <p className="text-gray-600 font-medium mb-auto">
                             {cert.issuer}
                         </p>
-                        <p className="text-gray-400 text-sm mt-6 font-medium">
-                            {cert.date}
-                        </p>
+                        <div className="flex items-center justify-between mt-auto pt-4">
+                            <p className="text-gray-500 text-sm font-medium">
+                                {cert.date}
+                            </p>
+                            <a
+                                href={cert.link}
+                                className="flex items-center gap-1.5 text-gray-900 hover:text-blue-600 transition-colors font-bold text-sm"
+                            >
+                                <span>View Certificate</span>
+                                <ArrowRight size={16} />
+                            </a>
+                        </div>
                     </motion.div>
                 ))}
             </div>
