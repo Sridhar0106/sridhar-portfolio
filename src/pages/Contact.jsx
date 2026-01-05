@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Mail, MapPin } from 'lucide-react';
+import { Github, Linkedin, Instagram, Mail, MapPin } from 'lucide-react';
 
 const Contact = () => {
     return (
@@ -60,14 +60,14 @@ const Contact = () => {
                             {[
                                 { icon: Github, link: '#' },
                                 { icon: Linkedin, link: '#' },
-                                { icon: Twitter, link: '#' }
+                                { icon: Instagram, link: '#' }
                             ].map((item, idx) => (
                                 <a
                                     key={idx}
                                     href={item.link}
-                                    className="p-4 bg-slate-100 dark:bg-slate-900 rounded-2xl text-slate-500 hover:text-white hover:bg-blue-700 transition-all duration-300"
+                                    className="p-4 bg-slate-100 dark:bg-slate-900 rounded-2xl text-slate-500 hover:text-white hover:bg-blue-600 transition-all duration-300 hover:shadow-[0_0_25px_rgba(37,99,235,0.4)] hover:scale-110 group"
                                 >
-                                    <item.icon size={28} />
+                                    <item.icon size={28} className="transition-transform duration-300 group-hover:rotate-[10deg]" />
                                 </a>
                             ))}
                         </div>
@@ -87,14 +87,14 @@ const Contact = () => {
                                 <label className="text-sm font-extrabold text-slate-800! dark:text-gray-500 tracking-wider uppercase">Name</label>
                                 <input
                                     type="text"
-                                    className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-black! dark:text-white focus:outline-none focus:border-black transition-colors font-bold"
+                                    className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-white! dark:text-white focus:outline-none focus:border-black transition-colors font-bold"
                                 />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-sm font-extrabold text-slate-800! dark:text-gray-500 tracking-wider uppercase">Email</label>
                                 <input
                                     type="email"
-                                    className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-black! dark:text-white focus:outline-none focus:border-black transition-colors font-bold"
+                                    className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-white! dark:text-white focus:outline-none focus:border-black transition-colors font-bold"
                                 />
                             </div>
                         </div>
@@ -102,13 +102,13 @@ const Contact = () => {
                             <label className="text-sm font-extrabold text-slate-800! dark:text-gray-500 tracking-wider uppercase">Subject</label>
                             <input
                                 type="text"
-                                className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-black! dark:text-white focus:outline-none focus:border-black transition-colors font-bold"
+                                className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-white! dark:text-white focus:outline-none focus:border-black transition-colors font-bold"
                             />
                         </div>
                         <div className="space-y-2 flex-1 flex flex-col">
                             <label className="text-sm font-extrabold text-slate-800! dark:text-gray-500 tracking-wider uppercase">Message</label>
                             <textarea
-                                className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-black! dark:text-white focus:outline-none focus:border-black transition-colors flex-1 resize-none font-bold"
+                                className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-white! dark:text-white focus:outline-none focus:border-black transition-colors flex-1 resize-none font-bold"
                                 rows="6"
                             ></textarea>
                         </div>
