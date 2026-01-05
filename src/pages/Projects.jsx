@@ -71,12 +71,12 @@ const Projects = () => {
                         </div>
 
                         {/* Content Area */}
-                        <div className="flex-1">
+                        <div className="flex-1 flex flex-col">
                             <h3 className="text-3xl font-bold text-black! dark:text-white mb-4 tracking-tight transition-colors group-hover:text-blue-600">
                                 {project.title}
                             </h3>
 
-                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8 font-medium">
+                            <p className="text-[#FAF9F6] leading-relaxed mb-8 font-medium">
                                 {project.description}
                             </p>
 
