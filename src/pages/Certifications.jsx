@@ -102,7 +102,7 @@ const Certifications = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {certifications.map((cert, index) => (
                     <TiltCard key={index} index={index}>
-                        <h3 className={`text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors ${t.textHeading}`}>
+                        <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors text-black!">
                             {cert.title}
                         </h3>
                         <p className={`font-medium mb-auto ${t.textMuted}`}>
