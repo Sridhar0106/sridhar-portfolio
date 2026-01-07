@@ -114,7 +114,7 @@ const Certifications = () => {
                             </p>
                             <a
                                 href={cert.link}
-                                className="flex items-center gap-1.5 text-gray-900 dark:text-white hover:text-blue-600 transition-colors font-bold text-sm"
+                                className="flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-bold text-sm opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto"
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 <span>View Certificate</span>
