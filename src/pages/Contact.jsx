@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Instagram, Mail, MapPin } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
+import { themeStyles } from '../styles/themeStyles';
 
 const Contact = () => {
+    const { isDarkMode } = useTheme();
+    const t = isDarkMode ? themeStyles.dark : themeStyles.light;
     return (
         <div className="pt-32 pb-24 px-8 md:px-24 max-w-7xl mx-auto">
             <motion.div
@@ -11,9 +15,9 @@ const Contact = () => {
                 transition={{ duration: 0.8 }}
                 className="text-center mb-24"
             >
-                <h1 className="text-6xl font-extrabold text-black! dark:text-white mb-6 tracking-tighter uppercase transition-colors">Get in Touch</h1>
-                <p className="text-black! dark:text-gray-400 text-xl font-bold tracking-wide transition-colors">
-                    Have a project in mind? Let's build something amazing together.
+                <h1 className={`text-6xl font-extrabold mb-6 tracking-tighter uppercase transition-colors ${t.textHeading}`}>Get in Touch</h1>
+                <p className={`mt-4 text-xl tracking-wide transition-colors ${t.textMuted}`}>
+                    Let's collaborate on your next big idea.
                 </p>
             </motion.div>
 
@@ -26,15 +30,15 @@ const Contact = () => {
                         transition={{ duration: 0.6 }}
                         className="p-10 bg-white/95 dark:bg-[#111827]/40 backdrop-blur-md border border-slate-300 dark:border-gray-800 rounded-[32px] hover:border-black transition-all duration-500 shadow-md"
                     >
-                        <h3 className="text-3xl font-bold text-black dark:text-white mb-10 transition-colors">Contact Info</h3>
+                        <h3 className={`text-3xl font-bold mb-10 transition-colors ${t.textHeading}`}>Contact Info</h3>
                         <div className="space-y-8">
                             <div className="flex items-center gap-6 group">
                                 <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-2xl group-hover:bg-blue-500/10 transition-colors">
                                     <Mail className="text-slate-800 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400" size={24} />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-extrabold text-slate-800! dark:text-gray-500 uppercase tracking-widest mb-1">Email</p>
-                                    <p className="text-lg text-black! dark:text-white font-bold transition-colors">sridhar0106a@gmail.com</p>
+                                    <p className={`text-sm font-extrabold uppercase tracking-widest mb-1 ${t.textMuted}`}>Email</p>
+                                    <p className={`text-lg font-bold transition-colors ${t.textHeading}`}>sridhar0106a@gmail.com</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-6 group">
@@ -42,8 +46,8 @@ const Contact = () => {
                                     <MapPin className="text-slate-800 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400" size={24} />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-extrabold text-slate-800! dark:text-gray-500 uppercase tracking-widest mb-1">Location</p>
-                                    <p className="text-lg text-black! dark:text-white font-bold transition-colors">Coimbatore, Tamil Nadu, India</p>
+                                    <p className={`text-sm font-extrabold uppercase tracking-widest mb-1 ${t.textMuted}`}>Location</p>
+                                    <p className={`text-lg font-bold transition-colors ${t.textHeading}`}>Coimbatore, Tamil Nadu, India</p>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +59,7 @@ const Contact = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="p-10 bg-white/95 dark:bg-[#111827]/40 backdrop-blur-md border border-slate-300 dark:border-gray-800 rounded-[32px] hover:border-black transition-all duration-500 shadow-md"
                     >
-                        <h3 className="text-3xl font-bold text-black dark:text-white mb-10 transition-colors">Connect</h3>
+                        <h3 className={`text-3xl font-bold mb-10 transition-colors ${t.textHeading}`}>Connect</h3>
                         <div className="flex gap-6">
                             {[
                                 { icon: Github, link: '#' },
@@ -84,31 +88,31 @@ const Contact = () => {
                     <form className="space-y-6 flex-1 flex flex-col">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-extrabold text-slate-800! dark:text-gray-500 tracking-wider uppercase">Name</label>
+                                <label className={`text-sm font-extrabold tracking-wider uppercase ${t.textMuted}`}>Name</label>
                                 <input
                                     type="text"
-                                    className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-white! dark:text-white focus:outline-none focus:border-black transition-colors font-bold"
+                                    className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-black dark:text-white focus:outline-none focus:border-black transition-colors font-bold"
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-extrabold text-slate-800! dark:text-gray-500 tracking-wider uppercase">Email</label>
+                                <label className={`text-sm font-extrabold tracking-wider uppercase ${t.textMuted}`}>Email</label>
                                 <input
                                     type="email"
-                                    className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-white! dark:text-white focus:outline-none focus:border-black transition-colors font-bold"
+                                    className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-black dark:text-white focus:outline-none focus:border-black transition-colors font-bold"
                                 />
                             </div>
                         </div>
                         <div className="space-y-2">
-                            <label className="text-sm font-extrabold text-slate-800! dark:text-gray-500 tracking-wider uppercase">Subject</label>
+                            <label className={`text-sm font-extrabold tracking-wider uppercase ${t.textMuted}`}>Subject</label>
                             <input
                                 type="text"
-                                className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-white! dark:text-white focus:outline-none focus:border-black transition-colors font-bold"
+                                className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-black dark:text-white focus:outline-none focus:border-black transition-colors font-bold"
                             />
                         </div>
                         <div className="space-y-2 flex-1 flex flex-col">
-                            <label className="text-sm font-extrabold text-slate-800! dark:text-gray-500 tracking-wider uppercase">Message</label>
+                            <label className={`text-sm font-extrabold tracking-wider uppercase ${t.textMuted}`}>Message</label>
                             <textarea
-                                className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-white! dark:text-white focus:outline-none focus:border-black transition-colors flex-1 resize-none font-bold"
+                                className="w-full bg-slate-50 dark:bg-gray-900/50 border border-slate-300 dark:border-gray-800 rounded-2xl p-4 text-black dark:text-white focus:outline-none focus:border-black transition-colors flex-1 resize-none font-bold"
                                 rows="6"
                             ></textarea>
                         </div>

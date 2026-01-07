@@ -2,8 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, MapPin, Calendar } from 'lucide-react';
 import profileAvatar from '../assets/profile-avatar.png';
+import { useTheme } from '../context/ThemeContext';
+import { themeStyles } from '../styles/themeStyles';
 
 const About = () => {
+    const { isDarkMode } = useTheme();
+    const t = isDarkMode ? themeStyles.dark : themeStyles.light;
     const experiences = [
         {
             title: 'Web Developer Intern',
@@ -70,8 +74,8 @@ const About = () => {
                                 <GraduationCap className="text-blue-700 dark:text-blue-500" size={32} />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-black! dark:text-white mb-1 transition-colors">B.E - Computer Science and Engineering</h3>
-                                <p className="text-black! dark:text-gray-300 mb-4 transition-colors font-medium">Jansons Institute of Technology</p>
+                                <h3 className={`text-xl font-bold mb-1 transition-colors ${t.textHeading}`}>B.E - Computer Science and Engineering</h3>
+                                <p className={`mb-4 transition-colors font-medium ${t.textContrast}`}>Jansons Institute of Technology</p>
                                 <div className="flex flex-wrap gap-6 text-sm text-gray-600 dark:text-gray-500 font-bold">
                                     <div className="flex items-center gap-2">
                                         <Calendar size={18} className="text-blue-600" />
@@ -93,11 +97,11 @@ const About = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="pt-8"
                     >
-                        <h1 className="text-7xl font-extrabold text-black! dark:text-white mb-12 tracking-tighter transition-colors">About Me</h1>
-                        <p className="text-black! dark:text-gray-400 text-xl leading-relaxed mb-8 transition-colors font-medium max-w-2xl">
+                        <h1 className={`text-7xl font-extrabold mb-12 tracking-tighter transition-colors ${t.textHeading}`}>About Me</h1>
+                        <p className={`text-xl leading-relaxed mb-8 transition-colors font-medium max-w-2xl ${t.text}`}>
                             Hello! I'm a passionate Software Engineer based in Coimbatore, Tamil Nadu, India. I have a specialized focus on building exceptional digital experiences that are fast, accessible, and visually appealing.
                         </p>
-                        <p className="text-black! dark:text-gray-400 text-xl leading-relaxed mb-12 transition-colors font-medium max-w-2xl">
+                        <p className={`text-xl leading-relaxed mb-12 transition-colors font-medium max-w-2xl ${t.text}`}>
                             My journey in web development began 2+ years ago, and since then, I've had the privilege of working with diverse projects. I love solving complex problems and turning ideas into reality through code.
                         </p>
                     </motion.div>
@@ -106,7 +110,7 @@ const About = () => {
 
             {/* Experience Section */}
             <section>
-                <h2 className="text-3xl font-black text-black! dark:text-white text-center mb-24 tracking-wide transition-colors uppercase">Experience</h2>
+                <h2 className={`text-3xl font-black text-center mb-24 tracking-wide transition-colors uppercase ${t.textHeading}`}>Experience</h2>
                 <div className="max-w-4xl mx-auto flex flex-col gap-12 border-l-2 border-slate-200 dark:border-gray-800 pl-12 transition-colors">
                     {experiences.map((exp, index) => (
                         <motion.div
@@ -120,14 +124,14 @@ const About = () => {
                             {/* Timeline Dot */}
                             <div className="absolute -left-[57px] top-2 w-5 h-5 bg-blue-600 dark:bg-blue-500 rounded-full border-4 border-white dark:border-[#0a0a0c] shadow-lg transition-colors"></div>
 
-                            <h3 className="text-2xl font-black text-black! dark:text-white mb-2 transition-colors uppercase tracking-tight">{exp.title}</h3>
+                            <h3 className={`text-2xl font-black mb-2 transition-colors uppercase tracking-tight ${t.textHeading}`}>{exp.title}</h3>
                             <div className="flex flex-wrap gap-4 items-center mb-4 transition-colors">
-                                <span className="text-lg font-bold text-black! dark:text-gray-300">{exp.company}</span>
+                                <span className={`text-lg font-bold ${t.textContrast}`}>{exp.company}</span>
                                 <span className="text-slate-400 dark:text-gray-500 font-bold">•</span>
-                                <span className="text-black! font-semibold uppercase tracking-wider text-sm">{exp.location}</span>
+                                <span className={`font-semibold uppercase tracking-wider text-sm ${t.textHeading}`}>{exp.location}</span>
                             </div>
                             <p className="text-blue-600 dark:text-blue-400 font-bold mb-4 uppercase tracking-widest text-xs">{exp.date}</p>
-                            <p className="text-gray-700 dark:text-gray-400 leading-relaxed max-w-2xl transition-colors font-medium">
+                            <p className={`leading-relaxed max-w-2xl transition-colors font-medium ${t.text}`}>
                                 {exp.description}
                             </p>
                         </motion.div>
