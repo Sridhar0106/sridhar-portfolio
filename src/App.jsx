@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Background from './components/Background';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
@@ -11,6 +12,7 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <div className="min-h-screen selection:bg-blue-500/30">
+      <ScrollToTop />
       <Background />
       <Navbar />
       <main className="relative z-10">
