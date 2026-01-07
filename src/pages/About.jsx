@@ -68,14 +68,14 @@ const About = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.3 }}
-                            className="bg-white! dark:bg-[#111827]/60 backdrop-blur-md border border-slate-200 dark:border-gray-800 rounded-[32px] p-8 flex items-start gap-6 shadow-xl shadow-black/5"
+                            className="bg-white! backdrop-blur-md border border-slate-200 dark:border-gray-800 rounded-[32px] p-8 flex items-start gap-6 shadow-xl shadow-black/5"
                         >
                             <div className="p-4 bg-slate-50 dark:bg-gray-900 rounded-2xl">
                                 <GraduationCap className="text-blue-700 dark:text-blue-500" size={32} />
                             </div>
                             <div>
-                                <h3 className={`text-xl font-bold mb-1 transition-colors ${t.textHeading}`}>B.E - Computer Science and Engineering</h3>
-                                <p className={`mb-4 transition-colors font-medium ${t.textContrast}`}>Jansons Institute of Technology</p>
+                                <h3 className="text-xl font-bold mb-1 transition-colors text-black!">B.E - Computer Science and Engineering</h3>
+                                <p className="mb-4 transition-colors font-medium text-black!">Jansons Institute of Technology</p>
                                 <div className="flex flex-wrap gap-6 text-sm text-gray-600 dark:text-gray-500 font-bold">
                                     <div className="flex items-center gap-2">
                                         <Calendar size={18} className="text-blue-600" />
