@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
+import { themeStyles } from '../styles/themeStyles';
 
 const Projects = () => {
+    const { isDarkMode } = useTheme();
+    const t = isDarkMode ? themeStyles.dark : themeStyles.light;
     const projects = [
         {
             title: 'E-Commerce Dashboard',
@@ -46,8 +50,8 @@ const Projects = () => {
                 transition={{ duration: 0.8 }}
                 className="text-center mb-20"
             >
-                <h1 className="text-6xl font-extrabold text-black! dark:text-white mb-6 tracking-tighter transition-colors uppercase">My Projects</h1>
-                <p className="text-black! dark:text-gray-400 text-xl font-bold tracking-wide transition-colors">
+                <h1 className={`text-6xl font-extrabold mb-6 tracking-tighter uppercase transition-colors ${t.textHeading}`}>My Projects</h1>
+                <p className={`text-xl font-bold tracking-wide transition-colors ${t.textMuted}`}>
                     A showcase of my recent work and side projects.
                 </p>
             </motion.div>
@@ -72,11 +76,8 @@ const Projects = () => {
 
                         {/* Content Area */}
                         <div className="flex-1 flex flex-col">
-                            <h3 className="text-3xl font-bold text-black! dark:text-white mb-4 tracking-tight transition-colors group-hover:text-blue-600">
-                                {project.title}
-                            </h3>
-
-                            <p className="text-[#FAF9F6] leading-relaxed mb-8 font-medium">
+                            <h3 className={`text-3xl font-bold mb-4 ${t.textHeading}`}>{project.title}</h3>
+                            <p className={`leading-relaxed mb-8 font-medium ${t.textMuted}`}>
                                 {project.description}
                             </p>
 

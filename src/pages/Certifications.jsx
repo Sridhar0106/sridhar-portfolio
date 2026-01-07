@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
+import { themeStyles } from '../styles/themeStyles';
 
 const TiltCard = ({ children, index }) => {
     const x = useMotionValue(0);
@@ -54,6 +56,8 @@ const TiltCard = ({ children, index }) => {
 };
 
 const Certifications = () => {
+    const { isDarkMode } = useTheme();
+    const t = isDarkMode ? themeStyles.dark : themeStyles.light;
     const certifications = [
         {
             title: 'AWS Certified Solutions Architect',
@@ -89,8 +93,8 @@ const Certifications = () => {
                 transition={{ duration: 0.8 }}
                 className="text-center mb-20"
             >
-                <h1 className="text-6xl font-extrabold text-black! dark:text-white mb-6 tracking-tighter uppercase transition-colors">Certifications</h1>
-                <p className="mt-4 text-xl text-gray-600 dark:text-gray-400 tracking-wide transition-colors">
+                <h1 className={`text-6xl font-extrabold mb-6 tracking-tighter uppercase transition-colors ${t.textHeading}`}>Certifications</h1>
+                <p className={`mt-4 text-xl tracking-wide transition-colors ${t.textMuted}`}>
                     Continuous learning and professional verification.
                 </p>
             </motion.div>
@@ -98,10 +102,10 @@ const Certifications = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {certifications.map((cert, index) => (
                     <TiltCard key={index} index={index}>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                        <h3 className={`text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors ${t.textHeading}`}>
                             {cert.title}
                         </h3>
-                        <p className="text-gray-600 font-medium mb-auto">
+                        <p className={`font-medium mb-auto ${t.textMuted}`}>
                             {cert.issuer}
                         </p>
                         <div className="flex items-center justify-between mt-auto pt-4">
@@ -110,7 +114,7 @@ const Certifications = () => {
                             </p>
                             <a
                                 href={cert.link}
-                                className="flex items-center gap-1.5 text-gray-900 hover:text-blue-600 transition-colors font-bold text-sm"
+                                className="flex items-center gap-1.5 text-gray-900 dark:text-white hover:text-blue-600 transition-colors font-bold text-sm"
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 <span>View Certificate</span>
