@@ -62,9 +62,9 @@ const Contact = () => {
                         <h3 className={`text-3xl font-bold mb-10 transition-colors ${t.textHeading}`}>Connect</h3>
                         <div className="flex gap-6">
                             {[
-                                { icon: Github, link: '#' },
-                                { icon: Linkedin, link: '#' },
-                                { icon: Instagram, link: '#' }
+                                { icon: Github, link: 'https://github.com/Sridhar0106' },
+                                { icon: Linkedin, link: 'https://www.linkedin.com/in/sridhar-a-4b3119287' },
+                                { icon: Instagram, link: 'https://www.instagram.com/_.s.r.i.d.h.a.r_/' }
                             ].map((item, idx) => (
                                 <a
                                     key={idx}
