@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
+import { themeStyles } from '../styles/themeStyles';
 
 const skills = [
     { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
@@ -18,10 +20,12 @@ const skills = [
 ];
 
 const Skills = () => {
+    const { isDarkMode } = useTheme();
+    const t = isDarkMode ? themeStyles.dark : themeStyles.light;
     return (
         <section className="py-24 px-4 bg-transparent">
             <div className="max-w-6xl mx-auto bg-white dark:bg-slate-900/40 backdrop-blur-md border border-black/5 dark:border-white/5 rounded-[40px] p-12 md:p-20 shadow-xl transition-all duration-300">
-                <h2 className="text-5xl font-black text-black dark:text-white text-center mb-24 transition-colors uppercase tracking-tight">Technical Arsenal</h2>
+                <h2 className={`text-5xl font-black text-center mb-24 transition-colors uppercase tracking-tight ${t.textHeading}`}>Technical Arsenal</h2>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-8 gap-y-16 justify-items-center">
                     {skills.map((skill, index) => (
@@ -37,7 +41,7 @@ const Skills = () => {
                                     className={`w-14 h-14 object-contain transition-all duration-300 ${skill.name === 'GitHub' ? 'dark:invert' : ''}`}
                                 />
                             </div>
-                            <span className="text-sm font-bold text-black! dark:text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">
+                            <span className={`text-sm font-bold group-hover:text-black dark:group-hover:text-blue-400 transition-colors ${t.textHeading}`}>
                                 {skill.name}
                             </span>
                         </motion.div>
