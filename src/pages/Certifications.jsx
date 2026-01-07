@@ -86,14 +86,14 @@ const Certifications = () => {
     ];
 
     return (
-        <div className="pt-32 pb-24 px-8 md:px-24 max-w-7xl mx-auto" style={{ perspective: "1000px" }}>
+        <div className="pt-24 pb-16 px-4 sm:px-8 md:px-24 max-w-7xl mx-auto" style={{ perspective: "1000px" }}>
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 className="text-center mb-20"
             >
-                <h1 className={`text-6xl font-extrabold mb-6 tracking-tighter uppercase transition-colors ${t.textHeading}`}>Certifications</h1>
+                <h1 className={`text-4xl sm:text-6xl font-extrabold mb-6 tracking-tighter uppercase transition-colors ${t.textHeading}`}>Certifications</h1>
                 <p className={`mt-4 text-xl tracking-wide transition-colors ${t.textMuted}`}>
                     Continuous learning and professional verification.
                 </p>

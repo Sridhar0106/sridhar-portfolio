@@ -26,7 +26,7 @@ const About = () => {
     ];
 
     return (
-        <div className="pt-32 pb-24 px-8 md:px-24 max-w-7xl mx-auto">
+        <div className="pt-24 pb-16 px-4 sm:px-8 md:px-24 max-w-7xl mx-auto">
             {/* About Me Section */}
             <section className="mb-32">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
@@ -97,7 +97,7 @@ const About = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="pt-8"
                     >
-                        <h1 className={`text-7xl font-extrabold mb-12 tracking-tighter transition-colors ${t.textHeading}`}>About Me</h1>
+                        <h1 className={`text-4xl sm:text-7xl font-extrabold mb-12 tracking-tighter transition-colors ${t.textHeading}`}>About Me</h1>
                         <p className={`text-xl leading-relaxed mb-8 transition-colors font-medium max-w-2xl ${t.text}`}>
                             Hello! I'm a passionate Software Engineer based in Coimbatore, Tamil Nadu, India. I have a specialized focus on building exceptional digital experiences that are fast, accessible, and visually appealing.
                         </p>

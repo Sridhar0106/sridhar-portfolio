@@ -14,7 +14,7 @@ const HomeAbout = () => {
     ];
 
     return (
-        <section className="py-24 px-8 md:px-24">
+        <section className="py-16 px-4 sm:px-8 md:px-24">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
@@ -22,7 +22,7 @@ const HomeAbout = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className={`text-6xl font-black mb-10 transition-colors uppercase tracking-tighter ${t.textHeading}`}>Hi,</h2>
+                    <h2 className={`text-4xl sm:text-6xl font-black mb-10 transition-colors uppercase tracking-tighter ${t.textHeading}`}>Hi,</h2>
                     <p className={`text-xl leading-relaxed mb-8 transition-colors font-bold ${t.text}`}>
                         I am a passionate software engineer with a deep love for building scalable and efficient web applications. With 2+ years of virtual experience in the industry, I have honed my skills in both frontend and backend development.
                     </p>
