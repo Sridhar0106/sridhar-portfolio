@@ -2,10 +2,12 @@ import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Lightbulb, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { themeStyles } from '../styles/themeStyles';
 import { useState } from 'react';
 
 const Navbar = () => {
     const { isDarkMode, toggleTheme } = useTheme();
+    const t = isDarkMode ? themeStyles.dark : themeStyles.light;
     const [isOpen, setIsOpen] = useState(false);
 
     const navItems = [
@@ -20,7 +22,7 @@ const Navbar = () => {
         <header className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-lg border-b border-black/10 dark:border-white/10 transition-all duration-300">
             <nav className="container mx-auto flex h-14 items-center justify-between px-6 md:px-20">
                 {/* Logo */}
-                <NavLink to="/" className="text-xl md:text-2xl font-bold tracking-tight text-black! dark:text-white transition-all hover:opacity-70">
+                <NavLink to="/" className={`text-xl md:text-2xl font-bold tracking-tight transition-all hover:opacity-70 ${t.textHeading}`}>
                     Portfolio
                 </NavLink>
 
@@ -33,8 +35,8 @@ const Navbar = () => {
                                     to={item.path}
                                     className={({ isActive }) =>
                                         `text-sm font-bold tracking-wide transition-all duration-300 py-1 ${isActive
-                                            ? 'text-black! dark:text-white'
-                                            : 'text-black/50 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400'
+                                            ? t.textHeading
+                                            : t.textMuted + ' hover:text-blue-600'
                                         }`
                                     }
                                 >
